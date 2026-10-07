@@ -4,28 +4,33 @@ import common.Animal;
 import common.CabinetVet;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CabinetVetImpl implements CabinetVet {
+public class CabinetVetImpl extends UnicastRemoteObject implements CabinetVet {
     private List<Animal> animaux = new ArrayList<>();
 
-    public CabinetVetImpl(){
+    public CabinetVetImpl() throws RemoteException{
         super();
     }
 
+    public synchronized void ajouter(Animal a) {     // usage serveur seulement
+        animaux.add(a);
+    }
+
     @Override
-    public List<Animal> getListPatients(){
+    public List<Animal> getPatients(){
         return animaux;
     }
 
     @Override
     public Animal rechercherParNom(String nom) throws RemoteException {
         for (Animal animal: animaux){
-            if (nom.equals(animal.getNom())){ //Commencer par nom pour le cas où getNom est null
+            if (animal.getNom().equals(nom)){
                 return animal;
             }
         }
-        return null;
+        return null; //Null si aucun patient de ce nom
     }
 }
