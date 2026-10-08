@@ -39,13 +39,13 @@ public class Client {
         d2.getHistorique().forEach(System.out::println);
     }
 
-        //Afficher la liste des PATIENTS
-        public void afficherPatients(CabinetVet stub) throws RemoteException{
-            List<Animal> patients = stub.getPatients();
-            for (Animal a: patients){
-                System.out.println("Nom : "+a.getNom());
-            }
+    //Afficher la liste des PATIENTS
+    public void afficherPatients(CabinetVet stub) throws RemoteException{
+        List<Animal> patients = stub.getPatients();
+        for (Animal a: patients){
+            System.out.println("Nom : "+a.getNom());
         }
+    }
 
     public static void main(String[] args) {
         String host = (args.length < 1) ? null : args[0];
@@ -68,7 +68,7 @@ public class Client {
             // Rechercher un patient par nom
             System.out.println("Le patient recherché est : " + stub.rechercherParNom("Marc").getNom());
 
-            // Recherher un patient qui n'existe pas
+            // Rechercher un patient qui n'existe pas
             System.out.println(stub.rechercherParNom("Jean").getNom());
 
         } catch (Exception e) {

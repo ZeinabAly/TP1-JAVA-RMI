@@ -5,6 +5,10 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public interface CabinetVet extends Remote {
-    public List<Animal> getPatients() throws RemoteException;
-    public Animal rechercherParNom(String nom) throws RemoteException;
+    List<Animal> getPatients() throws RemoteException;
+    Animal rechercherParNom(String nom) throws RemoteException;
+
+    // A5 - Le client peut envoyer les données pour créer un patient
+    Animal ajouterPatient(String nom, String nomMaitre, String race, Espece espece) throws RemoteException;
+    int getNombrePatients() throws RemoteException;
 }
