@@ -1,4 +1,4 @@
-package common;
+package common.src.common;
 
 import java.io.Serial;
 import java.io.Serializable;

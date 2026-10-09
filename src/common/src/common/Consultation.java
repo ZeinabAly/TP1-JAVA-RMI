@@ -1,4 +1,4 @@
-package common;
+package common.src.common;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -7,7 +7,8 @@ public class Consultation implements Serializable {
     private LocalDateTime date;
     private String texte;
 
-    public Consultation(LocalDateTime data, String texte){
+    public Consultation(LocalDateTime date, String texte){
+        this.date = date;
         this.texte = texte;
     }
 

@@ -1,11 +1,9 @@
-package server;
+package server.src.server;
 
 import java.io.Serial;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import common.Animal;
-import common.DossierSuivi;
-import common.Espece;
+import common.src.common.*;
 
 public class AnimalImpl extends UnicastRemoteObject implements Animal{
     @Serial
@@ -25,8 +23,8 @@ public class AnimalImpl extends UnicastRemoteObject implements Animal{
     }
 
     @Override 
-    public void infosAnimal() throws RemoteException{
-        System.out.println("Nom : " + nom + 
+    public String infosAnimal() throws RemoteException{
+        return ("Nom : " + nom +
         "Nom Maitre : " + nomMaitre + 
         "Race : "+race + 
         "Espèce : " + espece.getNom());
@@ -57,4 +55,7 @@ public class AnimalImpl extends UnicastRemoteObject implements Animal{
     public DossierSuivi getDossier() throws RemoteException {
         return dossierSuivi;
     }
+
+    @Override
+    public int identiteEspeceServeur() { return System.identityHashCode(espece); }
 }

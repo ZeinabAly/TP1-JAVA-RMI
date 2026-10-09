@@ -1,7 +1,6 @@
-package server;
+package server.src.server;
 
-import common.DossierSuivi;
-import common.Consultation;
+import common.src.common.*;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
