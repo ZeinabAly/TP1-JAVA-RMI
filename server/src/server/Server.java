@@ -1,11 +1,10 @@
 package server;
 
+import common.*;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.time.LocalDate;
-
-import common.*;
 
 
 public class Server {

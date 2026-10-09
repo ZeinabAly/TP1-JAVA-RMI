@@ -1,13 +1,13 @@
 package client;
 
+import common.*;
+
 import java.lang.reflect.Proxy;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.time.LocalDate;
 import java.util.List;
-
-import common.*;
 
 public class Client {
 
@@ -69,7 +69,18 @@ public class Client {
             System.out.println("Le patient recherché est : " + stub.rechercherParNom("Marc").getNom());
 
             // Rechercher un patient qui n'existe pas
-            System.out.println(stub.rechercherParNom("Jean").getNom());
+            // Gerer l'erreur à ce niveau
+            // System.out.println(stub.rechercherParNom("Jean").getNom());
+
+            // TEST A6
+            AlerteObserver vet1 = new AlerteObserverImpl();
+            stub.abonner(vet1);
+
+            AlerteObserver vet2 = new AlerteObserverImpl();
+            stub.abonner(vet2);
+
+            stub.ajouterPatient("Rex", "Paul", "Berger", new Chien(12));
+
 
         } catch (Exception e) {
             System.out.println("Erreur");

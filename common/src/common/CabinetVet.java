@@ -15,5 +15,7 @@ public interface CabinetVet extends Remote {
     // A6 - Observateur
     void abonner(AlerteObserver o) throws RemoteException;
     void desabonner(AlerteObserver o) throws RemoteException;
+
+    int getNombreObservateurs() throws RemoteException;
 }
 

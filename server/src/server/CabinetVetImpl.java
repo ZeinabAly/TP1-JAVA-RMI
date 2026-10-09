@@ -86,4 +86,8 @@ public class CabinetVetImpl extends UnicastRemoteObject implements CabinetVet {
             }
         }
     }
+
+    public int getNombreObservateurs() throws RemoteException{
+        return veterinaires.size();
+    }
 }
